@@ -14,7 +14,7 @@ izi.prototype.cityData = function (city, key) {
   return fetch(url, {
     headers: {
       "X-IZI-API-KEY": key,
-      "origin", "http://localhost"
+      "origin": "http://localhost"
     }
   })
   .then(response => response.json()) // parses response to JSON
@@ -25,7 +25,7 @@ izi.prototype.museumData = function (cityUuid, key) {
   return fetch(url, {
     headers: {
       "X-IZI-API-KEY": key,
-      "origin", "http://localhost"
+      "origin": "http://localhost"
     }
   })
   .then(response => response.json()) // parses response to JSON
