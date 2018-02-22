@@ -1,6 +1,6 @@
 {
   "name": "izi-travel-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Node module to assist with izi travel api",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "mocha": "^5.0.1"
   },
   "dependencies": {
+    "async": "^2.6.0",
     "es6-promise": "^4.2.4",
     "isomorphic-fetch": "^2.2.1"
   }
