@@ -45,7 +45,8 @@ izi.prototype.cityData = function (city, key/*, callback*/) { // added for water
   console.log(url);
   return fetch(url, {
     headers: {
-      "X-IZI-API-KEY": key
+      "X-IZI-API-KEY": key,
+       "origin": "http://localhost"
     }
   })
   .then(response => response.json())
@@ -65,7 +66,8 @@ izi.prototype.museumsData = function (cityUuid, key/*, callback*/) { // added fo
   var url = 'https://cors-anywhere.herokuapp.com/https://api.izi.travel/cities/' + cityUuid + '/children?languages=en&type=museum';
   return fetch(url, {
     headers: {
-      "X-IZI-API-KEY": key
+      "X-IZI-API-KEY": key,
+      "origin": "http://localhost"
     }
   })
   .then(response => response.json())
