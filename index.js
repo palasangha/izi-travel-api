@@ -87,7 +87,7 @@ izi.prototype.museumData = function (museumUuid, key, museumCount) {
     }
   })
   .then(response => {response.json().then(function(data) {
-    iziObject.iziOriginal.push(data[0]);
+    iziObject.iziOriginal.push(data[0].toString());
     iziObject.iziTitle.push(data[0].content[0].title);
     iziObject.iziType.push(data[0].type);
     iziObject.iziDescription.push(data[0].content[0].desc);
