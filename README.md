@@ -2,6 +2,7 @@ izi-travel-api
 =========
 
 A small library that makes the izi-travel-api a little easier
+Examples: https://github.com/JustinPMitchell/izi-travel-api-example
 
 ## Installation
 

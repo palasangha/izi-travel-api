@@ -112,6 +112,11 @@ izi.prototype.museumData = function (museumUuid, key, museumCount) {
 */
 izi.prototype.iziCall = function (city, key, callback) {
   return new Promise(resolve => {
+    cityUuid = "";
+    museumUuid = [];
+    imageUuid = [];
+    audioUuid = [];
+    contentProviderUuid = [];
     iziObject = {
       iziOriginal: [],
       iziTitle: [],
