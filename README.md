@@ -21,7 +21,7 @@ A small library that makes the izi-travel-api a little easier
   }
 
   /* This call will store one Amsterdam tour object in iziObject */
-  izi.iziCall("Amsterdam", "ded2b49e-e1f0-4917-a0c9-aeea61529c75", iziCallback);
+  izi.iziCall("Amsterdam", apiKey, iziCallback);
   
 ## Object
 
@@ -31,18 +31,10 @@ A small library that makes the izi-travel-api a little easier
       iziType: [],
       iziLatitude: [],
       iziLongitude: [],
-      iziPhoneNumber: [],
-      iziWebsite: [],
       iziCountry: [],
-      iziCity: [],
-      iziAddress: [],
-      iziSchedule: [],
       iziDescription: [],
       imageFile: [],
-      audioFile: []
     }
-
-
 
 ## Tests
 
