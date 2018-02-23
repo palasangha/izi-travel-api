@@ -57,7 +57,8 @@ izi.prototype.cityData = function (city, key) {
   defines up to 10 museumUuid's or the amount of uuid's given the city
 */
 izi.prototype.museumsData = function (cityUuid, key) {
-  var url = 'https://cors-anywhere.herokuapp.com/https://api.izi.travel/cities/' + cityUuid + '/children?languages=en&type=museum,tour';
+  var url = 'https://cors-anywhere.herokuapp.com/https://api.izi.travel/cities/' + cityUuid + '/children?languages=en';
+
   return fetch(url, {
     headers: {
       "X-IZI-API-KEY": key,
@@ -92,11 +93,11 @@ izi.prototype.museumData = function (museumUuid, key, museumCount) {
     iziObject.iziDescription.push(data[0].content[0].desc);
     iziObject.iziLatitude.push(data[0].location.latitude);
     iziObject.iziLongitude.push(data[0].location.longitude);
-    iziObject.iziPhoneNumber.push(data[0].contacts.phone_number);
-    iziObject.iziWebsite.push(data[0].contacts.website);
-    iziObject.iziCountry.push(data[0].contacts.country);
-    iziObject.iziCity.push(data[0].contacts.city);
-    iziObject.iziAddress.push(data[0].contacts.address);
+    // iziObject.iziPhoneNumber.push(data[0].contacts.phone_number);
+    // iziObject.iziWebsite.push(data[0].contacts.website);
+    iziObject.iziCountry.push(data[0].location.country_code);
+    // iziObject.iziCity.push(data[0].contacts.city);
+    // iziObject.iziAddress.push(data[0].contacts.address);
     iziObject.iziAddress.push(data[0].schedule);
     imageUuid.push(data[0].content[0].images[0].uuid); 
     contentProviderUuid.push(data[0].content_provider.uuid);
@@ -111,10 +112,26 @@ izi.prototype.museumData = function (museumUuid, key, museumCount) {
 */
 izi.prototype.iziCall = function (city, key, callback) {
   return new Promise(resolve => {
+    iziObject = {
+      iziOriginal: [],
+      iziTitle: [],
+      iziType: [],
+      iziLatitude: [],
+      iziLongitude: [],
+      iziPhoneNumber: [],
+      iziWebsite: [],
+      iziCountry: [],
+      iziCity: [],
+      iziAddress: [],
+      iziSchedule: [],
+      iziDescription: [],
+      imageFile: [],
+      audioFile: []
+    }
     this.cityData(city, key);
     var that = this;
     setTimeout(function() {console.log('this is the uuid of the city', cityUuid);}, 20000);
-    setTimeout(function() {console.log("this is that: ", that); that.museumsData(cityUuid, key);}, 20001);
+    setTimeout(function() {that.museumsData(cityUuid, key);}, 20001);
     setTimeout(function() {console.log("this is the uuid of the museum", museumUuid);}, 40000);
     setTimeout(function() {
       for(var i = 0; i < museumUuid.length; i++){
@@ -122,7 +139,7 @@ izi.prototype.iziCall = function (city, key, callback) {
       }
     }, 40001);
     setTimeout(function() {
-      resolve(callback(i));
+      resolve(callback(iziObject));
     }, 60000);
   });
 }
