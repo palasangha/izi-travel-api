@@ -1,6 +1,6 @@
 {
   "name": "izi-travel-api",
-  "version": "0.1.6",
+  "version": "0.1.10",
   "description": "Node module to assist with izi travel api",
   "main": "index.js",
   "scripts": {
